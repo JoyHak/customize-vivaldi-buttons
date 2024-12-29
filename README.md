@@ -1,5 +1,6 @@
 Customize the visible buttons in Vivaldi as you like! Change the position, icons, color, size and make the extension icons truly monochrome! You can place buttons and extensions wherever you like, add or remove spaces, and make the toolbar *compact*, `w i d e` or **HUGE**! 
-
+![1](screenshots\1.png)
+![2](screenshots\2.png)
 Customization is possible via config in JS script. How to start
 
 1. Go to C:\Program Files\Vivaldi\Application
