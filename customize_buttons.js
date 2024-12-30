@@ -1,7 +1,10 @@
+// noinspection HtmlDeprecatedAttribute,XmlUnusedNamespaceDeclaration,UnnecessaryReturnStatementJS,DuplicatedCode,CssUnusedSymbol
+
 /*
 	Customize visible Vivaldi buttons and extensions
 
 	Author: 		rafaell0
+	Topic:
 */
 (async () => {
     'use strict';
@@ -21,9 +24,9 @@
         buttons : {
             color:          '',
             scale:          '',
-            space:          '30px',
+            space:          '25px',
         },
-        vertical_space: 	'30px',
+        vertical_space: 	'25px',
 		restart_script:		'Ctrl+Shift+F',
         order_start: 		''
 	};
@@ -47,22 +50,22 @@
             position:    2,
             svg:         ''
         },
-         {
-            name:        'Show closed tabs',
-            hide:        false,
-            toolbar:     'side',
-            space:       '',
-            position:    4,
-            svg:         ''
-         },
-         {
-            name:        'capture page',
-            hide:        false,
-            toolbar:     'side',
-            space:       'after',
-            position:    1,
-            svg:         ''
-         },
+        // {
+        //    name:        'Show closed tabs',
+        //    hide:        false,
+        //    toolbar:     'side',
+        //    space:       '',
+        //    position:    4,
+        //    svg:         ''
+        // },
+        // {
+        //    name:        'capture page',
+        //    hide:        false,
+        //    toolbar:     'side',
+        //    space:       'after',
+        //    position:    1,
+        //    svg:         ''
+        // },
         // These extensions are part of the sidebar, they must be in this config!
         {
             name:       'Any.Do',
@@ -110,15 +113,29 @@
         enabled:    false,
         from:       'side',
         to:         'tab',
-        position:   3
+        position:   1
     };
     const extensions = [
         {
             name:       'show hidden extensions',
-            hide:       true,
+            hide:       false,
             space:      'before',
             position:   4,
             svg:        ''
+        },
+		{
+            name:       'Copy on select',
+            hide:       false,
+            space:      'after',
+            position:   0,
+            svg:        ''
+        },
+		{
+            name:       'Cloud VPN',
+            hide:       false,
+            space:      'both',
+            position:   1,
+            svg:        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,21L15.6,16.2C14.6,15.45 13.35,15 12,15C10.65,15 9.4,15.45 8.4,16.2L12,21M12,3C7.95,3 4.21,4.34 1.2,6.6L3,9C5.5,7.12 8.62,6 12,6C15.38,6 18.5,7.12 21,9L22.8,6.6C19.79,4.34 16.05,3 12,3M12,9C9.3,9 6.81,9.89 4.8,11.4L6.6,13.8C8.1,12.67 9.97,12 12,12C14.03,12 15.9,12.67 17.4,13.8L19.2,11.4C17.19,9.89 14.7,9 12,9Z" /></svg>'
         },
         {
             name:       'ublock',
@@ -263,7 +280,7 @@
 	}
 	
 	function vertical_spacing() {
-		
+		// noinspection CssInvalidPropertyValue
         const css = `
 			/* Extensions spacing */
 			#switch > .toolbar.toolbar-vertical .button-toolbar > button,
@@ -291,6 +308,7 @@
 	}
 	
 	function extensions_style() {
+		const container = 'div.toolbar-extensions';
         const css = `
 			/* Hide arrow */
 			.button-popup-arrow-dark:before,
@@ -330,7 +348,8 @@
 			}
 			
 			/* Flexible container */
-			#tabs-container > div.toolbar-extensions {
+			${toolbars.tab} 	> ${container},
+			${toolbars.bottom}  > ${container} {
 				display: flex;
 				flex-shrink: 0;
 				flex-wrap: wrap;
@@ -340,7 +359,8 @@
         global_css.innerHTML += css;
     }
 
-    function buttons_style() {        
+    function buttons_style() {
+        // noinspection CssInvalidFunction,CssInvalidPropertyValue
         const css = `
 			.button-toolbar > button {
 			    transform:  scale(${global.buttons.scale})  !important;
@@ -407,7 +427,7 @@
         for (const {name, hide, space, position, svg} of Object.values(extensions)) {			// all extensions configs
             if (name) {																		    // extension enabled
                 try {
-                    const button = await get_name(name, target);							// target already exists, otherwise place_extensions() is not called
+                    const button = await get_name(name, target);								// target already exists, otherwise place_extensions() is not called
                     if (hide) {
                         button.style['display'] = 'none';
                     } else {
@@ -416,7 +436,7 @@
                         if (space)
                             await add_space(button, space, vertical)
 						if (position !== '') {
-							let pos = vertical ? (length - position) : position;			// sidebar needs reverse order
+							let pos = vertical ? (length - position) : position;				// sidebar needs reverse order
 							target.insertBefore(button, childs[pos]);
 						}
                     }
@@ -466,6 +486,8 @@
 
                 // Move extensions
                 await place_ext(to, target);
+				// Fix container 
+				await extensions_style();
 
                 // Remaining container (it may not exist - there is no need to catch the error)
                 const remain_tbar = from === 'top' ? 'side' : 'top';
@@ -512,7 +534,7 @@
                     top:        document.querySelector('#main > div.mainbar > div > div'),
                     side:       document.querySelector('#switch > div'),
                     bottom:     document.querySelector('#footer > div'),
-                    tab:        document.querySelector("#tabs-container")
+                    tab:        document.querySelector('#tabs-container')
                 };
 
                 // Place
@@ -521,7 +543,6 @@
 				
 				// Create CSS style
 				await vertical_spacing()
-                await extensions_style()
                 await buttons_style()
                 return;
             }
@@ -538,7 +559,7 @@
 	
     // Restart
 	const restart = global.restart_script;
-    if (restart) { 
+    if (restart) { // noinspection JSUnresolvedReference,JSDeprecatedSymbols
         vivaldi.tabsPrivate.onKeyboardShortcut.addListener((id, combination) => combination === restart && init_script());
     }
 
