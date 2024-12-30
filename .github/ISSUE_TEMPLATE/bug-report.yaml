@@ -25,5 +25,5 @@ body:
     attributes:
       label: Screenshots
       description: Add screenshots from [console](https://github.com/JoyHak/customize-vivaldi-buttons/blob/main/screenshots/console.png).
-      validations:
+     validations:
        required: true
