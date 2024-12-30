@@ -1,5 +1,5 @@
 name: "Question"
-description: Ask me something.
+description: Ask me something
 labels: ["question"]
 
 body:
@@ -8,7 +8,7 @@ body:
       label: Checks
       options:
         - label: >
-           This is not a bug/code review.
+           This is not a bug/code review
         
   - type: textarea
     attributes:
