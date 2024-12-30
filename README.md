@@ -3,19 +3,29 @@ Customize the visible buttons in Vivaldi as you like! Change the position, icons
 ![1](https://github.com/JoyHak/customize-vivalid-buttons/blob/main/screenshots/1.png)
 ![2](https://github.com/JoyHak/customize-vivalid-buttons/blob/main/screenshots/2.png)
 
-# Customization is possible via `config` in JS script. How to start:
+# Let's get started
 
-1. Go to `C:\Program Files\Vivaldi\Application`
+1. Download the archive with all the files:
 
-2. Open the *version number* folder.
+   
 
-3. Go to `resources\vivaldi`
+2. Go to `C:\Program Files\Vivaldi\Application`
 
-4. Open the `window.html` file.
+3. Open the *version* folder.
 
-5. After the element `<body>` add the following line: `<script src="customise_buttons.js"/></script>`
+4. Go to `resources\vivaldi`
 
-6. Open the script and read the rules for filling out the config. Unnecessary parameters can be left empty:  `' '`. The `buttons` config must not contain **extensions**, and the `extensions` config must not contain **buttons**!
+5. Copy the `window.html`, `public.js` files here and skip next step.
+
+6.  Open the `window.html`. After the element `<body>` add the following line: `<script src="customise_buttons.js"/></script>`
+
+7. Open the `public.js`. For each button you want to customize, create/copy a code block that should look like this:
+
+   
+
+8. Read the rules on how to work with these parameters. Explore already existing code blocks to better understand what values to enter!
+
+   > Parameters you are not interested in can be blank:  `' '`. The `buttons` config must not contain **extensions**, and the `extensions` config must not contain **buttons**!
 
    
 
@@ -26,19 +36,25 @@ I recommend you use these mods in conjunction with the script:
 
 # If you encounter any issues:
 
-1. Type `vivaldi:inspect/#apps` in your browser
+
+
+1. Type `vivaldi:inspect/#apps` in your browser or open `open_console.lnk`.
 
 2. Find the line that contains `window.html`
 
 3. Click `inspect`.
 
-4. Click the `console` tab. Read the errors and fix the configuration.
+4. Click the `console` tab. Read the errors and fix your script.
 
 If the issue persists, please send a screenshot from the tab.
 
 # Performance
 
 I optimised not only the speed but also the readability of the script. I documented many optimisation tricks, as a result of which the average script execution time for 15 buttons was 7-11ms
+
+https://github.com/JoyHak/customize-vivalid-buttons/blob/main/screenshots/profiling_2.png
+
+![1](https://github.com/JoyHak/customize-vivalid-buttons/blob/main/screenshots/profiling_2.png)
 
 ![2](https://github.com/JoyHak/customize-vivalid-buttons/blob/main/screenshots/profiling_6.png)
 
