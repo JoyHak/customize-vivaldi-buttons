@@ -1,13 +1,12 @@
 Customize the visible buttons in Vivaldi as you like! Change the position, icons, color, size and make the extension icons truly monochrome! You can place buttons and extensions wherever you like, add or remove spaces, and make the toolbar *compact*, `w i d e` or **HUGE**! 
 
-![1](https://github.com/JoyHak/customize-vivalid-buttons/blob/main/screenshots/1.png)
-![2](https://github.com/JoyHak/customize-vivalid-buttons/blob/main/screenshots/2.png)
+![](screenshots/promo1.png)
+![](screenshots/promo2.png)
 
 # Let's get started
 
 1. Download the archive with all the files:
-
-   
+![](screenshots/download.png)   
 
 2. Go to `C:\Program Files\Vivaldi\Application`
 
@@ -20,23 +19,18 @@ Customize the visible buttons in Vivaldi as you like! Change the position, icons
 6.  Open the `window.html`. After the element `<body>` add the following line: `<script src="customise_buttons.js"/></script>`
 
 7. Open the `public.js`. For each button you want to customize, create/copy a code block that should look like this:
-
-   
+![](screenshots/files.png)   
 
 8. Read the rules on how to work with these parameters. Explore already existing code blocks to better understand what values to enter!
 
-   > Parameters you are not interested in can be blank:  `' '`. The `buttons` config must not contain **extensions**, and the `extensions` config must not contain **buttons**!
-
-   
+   > Parameters you are not interested in can be blank:  `' '`. The `buttons` config must not contain **extensions**, and the `extensions` config must not contain **buttons**!  
 
 I recommend you use these mods in conjunction with the script:
-
 - https://github.com/JoyHak/Vivaldi-CSS-mods
 - https://github.com/quartz1216/vivaldi-gutter
 
 # If you encounter any issues:
-
-
+![](screenshots/console.png)
 
 1. Type `vivaldi:inspect/#apps` in your browser or open `open_console.lnk`.
 
@@ -50,13 +44,9 @@ If the issue persists, please send a screenshot from the tab.
 
 # Performance
 
-I optimised not only the speed but also the readability of the script. I documented many optimisation tricks, as a result of which the average script execution time for 15 buttons was 7-11ms
-
-https://github.com/JoyHak/customize-vivalid-buttons/blob/main/screenshots/profiling_2.png
-
-![1](https://github.com/JoyHak/customize-vivalid-buttons/blob/main/screenshots/profiling_2.png)
-
-![2](https://github.com/JoyHak/customize-vivalid-buttons/blob/main/screenshots/profiling_6.png)
+I optimised not only the speed but also the readability of the script. I documented many optimisation tricks. Customizing 10 normal buttons, changing and moving 4 extensions, changing 4 extensions on another toolbar takes just from 7ms to 11ms: 
+![](screenshots/profiling_0.png)
+![](screenshots/profiling_1.png)
 
 I will be glad if you suggest improvements and innovations and find a workaround to the limitations.
 
