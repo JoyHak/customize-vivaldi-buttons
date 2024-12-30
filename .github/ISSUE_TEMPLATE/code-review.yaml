@@ -17,9 +17,10 @@ body:
     validations:
       required: false
       
-  - type: textarea
+  - type: input
     attributes:
       label: Line number
-      description: [I](hh)
+      placeholder: example  https://github.com/JoyHak/customize-vivaldi-buttons/blob/d788dac5f8d478e1479e623f5827313603820f72/public.js#L8
+      description: Point to the corresponding file and line number(s) which could be improved. Click on the line number in GitHub to create an anchored link to the corresponding code section
     validations:
       required: false    
