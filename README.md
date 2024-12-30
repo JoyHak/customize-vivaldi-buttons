@@ -40,7 +40,7 @@ I recommend you use these mods in conjunction with the script:
 
 4. Click the `console` tab. Read the errors and fix them in the script.
 
-If something is still not working **after your fixes**, open the issue or send an email to the forum. Don't forget to attach a screenshot and a description of the problem!
+If something is still not working **after your fixes**, [open the issue](https://github.com/JoyHak/customize-vivaldi-buttons/issues/new/choose) or or go to the [topic on the forum](https://forum.vivaldi.net/post/803412). Don't forget to attach a screenshot and a description of the problem!
 
 # Performance
 
