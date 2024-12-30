@@ -29,7 +29,7 @@ I recommend you use these mods in conjunction with the script:
 - https://github.com/JoyHak/Vivaldi-CSS-mods
 - https://github.com/quartz1216/vivaldi-gutter
 
-# If you encounter any issues:
+# If you encounter any issues
 ![](screenshots/console.png)
 
 1. Type `vivaldi:inspect/#apps` in your browser or open `open_console.lnk`.
@@ -38,9 +38,9 @@ I recommend you use these mods in conjunction with the script:
 
 3. Click `inspect`.
 
-4. Click the `console` tab. Read the errors and fix your script.
+4. Click the `console` tab. Read the errors and fix them in the script.
 
-If the issue persists, please send a screenshot from the tab.
+If something is still not working **after your fixes**, open the issue or send an email to the forum. Don't forget to attach a screenshot and a description of the problem!
 
 # Performance
 
