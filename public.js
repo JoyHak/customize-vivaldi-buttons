@@ -2,6 +2,7 @@
 	Customize visible Vivaldi buttons and extensions
 
 	Author: 		rafaell0
+    Topic:          https://forum.vivaldi.net/post/803412
 */
 (async () => {
     'use strict';
