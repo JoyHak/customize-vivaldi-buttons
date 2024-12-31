@@ -52,16 +52,15 @@ I will be glad if you suggest improvements and innovations and find a workaround
 
 # Limitations
 
-- I can't move buttons from invisible panes: if I close the status bar, I can't move any button from it.
+- I can't move buttons from invisible panes: e.g. if I close the status bar, I can't move any button from it.
 
-- After adding tabs to the tab bar, the svg icon's height attribute disappears, making it invisible. Fixed by assigning it manually.
+- After adding tabs to the tab bar, the svg icon's height attribute disappears. Fixed by assigning it manually, but it's weird.
 
-- Can't load SVG/PNG icons from disc: browser gives `fetch error`. Not fixed in any way. 
+- I can't load SVG/PNG icons from disc: I got `fetch error`. Chrome flags and settings do not fix the error. 
+- The extensions popup window may go off the screen. To fix this, I need to somehow calculate the position and size of the window relative to the current position of the buttons. 
 
-- Animation and position of extension popup window needs to be calculated somehow, the window sometimes moves off the screen.  
-
-- I never got over the mutation observer, as it entered a perpetual loop after observing the toolbar: mutation observer generates a change, which triggers mutation observer, which generates a change, ... 
-  I had the idea of assigning a hidden html class to the panel that would tell the observer ‘stop, everything is fine, buttons added’, but I never got round to implementing it.
-
-- Initialisation of the script should be done via 
-  `addEventListener(‘DOMContentLoaded’, (event) => {})`, but I haven't tested this feature
+- I did not set up Mutation observer because of the infinite loop. It generates a change, which triggers mutation observer, which generates a change,... 
+I had the idea of assigning a hidden html class to the panel that would tell the observer ‘stop, everything is fine, buttons added’.
+- Initialisation of the script can be done via 
+`addEventListener(‘DOMContentLoaded’, (event) => {})`, but I haven't tested this feature.
+- I haven't figured out how to assign hotkeys to each button. This could fix the issue of non-working extension hotkeys in Vivaldi.
