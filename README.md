@@ -36,7 +36,7 @@ Here you can find the SVG code for the icons. Copy it and paste it in quotation 
 - https://freesvgicons.com
 - https://www.flaticon.com
 
-The color can be any, but the script resets it. To change the color, change the `buttons_color` global parameter!
+To match the color of other icons, use white. The script will take care of the rest. 
 
 # If you encounter any issues
 ![](screenshots/console.png)
@@ -65,7 +65,10 @@ I will be glad if you suggest improvements and innovations and find a workaround
 
 - After adding tabs to the tab bar, the svg icon's height attribute disappears. Fixed by assigning it manually, but it's weird.
 
-- I can't load SVG/PNG icons from disc: I got `fetch error`. Chrome flags and settings do not fix the error. 
+- I can't load SVG/PNG icons from disc: I got `fetch error`. Chrome flags and settings do not fix the error.
+  
+- The SVG parser is currently replacing all types of `white` with `currentColor`, this makes it possible to change the color of all icons through the `buttons_color` global parameter. If the user uses a different color, such as blue, the icon color will not change through the parameter.
+  
 - The extensions popup window may go off the screen. To fix this, I need to somehow calculate the position and size of the window relative to the current position of the buttons. 
 
 - I did not set up Mutation observer because of the infinite loop. It generates a change, which triggers mutation observer, which generates a change,... 
