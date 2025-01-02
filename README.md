@@ -29,6 +29,15 @@ I recommend you use these mods in conjunction with the script:
 - https://github.com/JoyHak/Vivaldi-CSS-mods
 - https://github.com/quartz1216/vivaldi-gutter
 
+# Icons
+Here you can find the SVG code for the icons. Copy it and paste it in quotation marks `' '` in the `svg` parameter:
+- https://pictogrammers.com/library/mdi/
+- https://icons8.com/icon/set/SVG/
+- https://freesvgicons.com
+- https://www.flaticon.com
+
+The color can be any, but the script resets it. To change the color, change the `buttons_color` global parameter!
+
 # If you encounter any issues
 ![](screenshots/console.png)
 
